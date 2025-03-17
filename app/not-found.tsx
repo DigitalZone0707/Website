@@ -1,4 +1,6 @@
 "use client";
+import { Button } from "@/components/ui/button";
+import {  HomeIcon } from "lucide-react";
 import { useEffect } from "react";
 
 export default function NotFound() {
@@ -18,9 +20,10 @@ export default function NotFound() {
       <p className="text-md md:text-xl font-medium mt-4">
         Oops! The page you're looking for doesn't exist.
       </p>
-      <a href="/" className="text-md md:text-lg font-medium mt-4 bg-[#1d4ed8] text-white px-4 py-2 rounded">
+      <Button className="mt-4" href="/" variant="secondary" size="md">
+        <HomeIcon className="h-4 w-4" />
         <span>Back to Home</span>
-      </a>
+      </Button>
     </div>
   );
 }
