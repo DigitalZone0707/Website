@@ -15,7 +15,7 @@ export function Card({
   return (
     <div
       className={`
-        bg-slate-100 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700
+        bg-slate-100 dark:bg-slate-800 p-6 cursor-pointer rounded-xl border border-slate-200 dark:border-slate-700
         ${
           hoverEffect
             ? "hover:border-[#FF416C]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF416C]/10 group"
@@ -68,7 +68,7 @@ interface ProjectCardProps {
 
 export function ProjectCard(project: ProjectCardProps) {
   return (
-    <div className="bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-[#E48633]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E48633]/10 group">
+    <div className="bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-slate-700 hover:border-[#E48633]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E48633]/10 group">
       <div className="relative h-48 overflow-hidden">
         <img
           src={project.image}

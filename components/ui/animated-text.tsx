@@ -9,7 +9,7 @@ interface AnimatedTextProps {
   once?: boolean
 }
 
-export const AnimatedCharacters: React.FC<AnimatedTextProps> = ({ text, className = "", once = true }) => {
+export const AnimatedWords: React.FC<AnimatedTextProps> = ({ text, className = "", once = true }) => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const AnimatedCharacters: React.FC<AnimatedTextProps> = ({ text, classNam
 
   return (
     <span className={className}>
-      {text.split("").map((char, index) => (
+      {text.split(" ").map((word, index) => (
         <span
           key={index}
           className="text-animate-character"
@@ -36,7 +36,7 @@ export const AnimatedCharacters: React.FC<AnimatedTextProps> = ({ text, classNam
             animationDelay: `${index * 0.05}s`,
           }}
         >
-          {char === " " ? "\u00A0" : char}
+          {word}&nbsp;
         </span>
       ))}
     </span>

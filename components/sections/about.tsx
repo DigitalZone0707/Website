@@ -1,5 +1,5 @@
 import { Zap, Users, Code } from "lucide-react"
-import { AnimatedCharacters } from "@/components/ui/animated-text"
+import { AnimatedWords } from "@/components/ui/animated-text"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { FeatureCard } from "@/components/ui/card"
 
@@ -27,7 +27,7 @@ export function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title="About" highlight="Tech Thrives" highlightClassName="animate-text-focus-in">
           <p className="mt-6 text-gray-800 dark:text-gray-300 max-w-2xl mx-auto">
-            <AnimatedCharacters
+            <AnimatedWords
               text="We believe in the power of teamwork, and this platform is our hub for developing, sharing, and improving projects that make a difference."
               once={false}
             />

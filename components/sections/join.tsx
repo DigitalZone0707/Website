@@ -1,5 +1,5 @@
 import { ArrowRight, Github } from "lucide-react"
-import { AnimatedCharacters } from "@/components/ui/animated-text"
+import { AnimatedWords } from "@/components/ui/animated-text"
 import { Button } from "@/components/ui/button"
 
 export function Join() {
@@ -14,7 +14,7 @@ export function Join() {
             Join the Community
           </h2>
           <p className="text-xl text-gray-800 dark:text-gray-300 mb-8">
-            <AnimatedCharacters
+            <AnimatedWords
               text="Ready to be part of something innovative? Join our community today and start collaborating on projects that matter."
               once={false}
             />

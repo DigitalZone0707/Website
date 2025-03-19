@@ -42,7 +42,7 @@ export function Community() {
               {communityFeatures.map((feature, index) => (
                 <Card
                   key={index}
-                  className="hover:border-[#FF416C]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF416C]/10 group"
+                  className="cursor-pointer hover:border-[#FF416C]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#FF416C]/10 group"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="bg-gradient-to-r from-[#FF416C] to-[#E48633] p-3 rounded-full">

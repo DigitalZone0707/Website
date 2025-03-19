@@ -8,8 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Tech Thrives - Where Innovation Meets Technology",
   description:
-    "A collaborative GitHub organization for developing, sharing, and improving projects that make a difference.",
-    generator: 'v0.dev'
+    "A collaborative GitHub organization for developing, sharing, and improving projects that make a difference."
 }
 
 export default function RootLayout({

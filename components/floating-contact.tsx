@@ -51,7 +51,7 @@ export function FloatingContact() {
           <div className="bg-slate-100 dark:bg-slate-900 rounded-xl shadow-xl w-full max-w-md p-6 relative animate-fade-in-up">
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors"
+              className="absolute top-4 right-4 cursor-pointer text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors"
               aria-label="Close"
             >
               <X className="h-5 w-5" />
@@ -125,7 +125,7 @@ export function FloatingContact() {
 
                 <button
                   type="submit"
-                  className={`w-full py-2 rounded-md bg-gradient-to-r from-[#FF416C] to-[#E48633] text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#FF416C] focus:ring-offset-2 ${
+                  className={`w-full py-2 cursor-pointer rounded-md bg-gradient-to-r from-[#FF416C] to-[#E48633] text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#FF416C] focus:ring-offset-2 ${
                     status === "loading" ? "opacity-70 cursor-not-allowed" : "hover:opacity-90"
                   }`}
                   disabled={status === "loading"}
