@@ -6,7 +6,6 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
 import { Community } from "@/components/sections/community";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Join } from "@/components/sections/join";
 import { FloatingContact } from "@/components/floating-contact";
 
@@ -19,7 +18,6 @@ export default function LandingPage() {
         <About />
         <Projects />
         <Community />
-        <Testimonials />
         <Join />
       </main>
       <Footer />
