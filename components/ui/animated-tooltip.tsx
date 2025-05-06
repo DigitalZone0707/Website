@@ -1,37 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  motion,
-  useTransform,
-  AnimatePresence,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
+import { motion, useTransform, AnimatePresence, useMotionValue, useSpring } from "motion/react";
+import { Member } from "@/types/types";
 
-export const AnimatedTooltip = ({
-  items,
-}: {
-  items: {
-    id: number;
-    name: string;
-    designation: string;
-    image: string;
-  }[];
-}) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+export const AnimatedMembers = ({ members }: { members: Member[] }) => {
+  const [hoveredIndex, setHoveredIndex] = useState<string | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
   // rotate the tooltip
-  const rotate = useSpring(
-    useTransform(x, [-100, 100], [-45, 45]),
-    springConfig,
-  );
+  const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), springConfig);
   // translate the tooltip
-  const translateX = useSpring(
-    useTransform(x, [-100, 100], [-50, 50]),
-    springConfig,
-  );
+  const translateX = useSpring(useTransform(x, [-100, 100], [-50, 50]), springConfig);
   const handleMouseMove = (event: any) => {
     const halfWidth = event.target.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
@@ -39,15 +19,15 @@ export const AnimatedTooltip = ({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {members.map((member, idx) => (
         <div
           className="group relative -mr-4"
-          key={item.name}
-          onMouseEnter={() => setHoveredIndex(item.id)}
+          key={idx}
+          onMouseEnter={() => setHoveredIndex(member.id)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence mode="popLayout">
-            {hoveredIndex === item.id && (
+            {hoveredIndex === member.id && (
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.6 }}
                 animate={{
@@ -70,10 +50,8 @@ export const AnimatedTooltip = ({
               >
                 <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
                 <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
-                <div className="relative z-30 text-base font-bold text-white">
-                  {item.name}
-                </div>
-                <div className="text-xs text-white">{item.designation}</div>
+                <div className="relative z-30 text-base font-bold text-white">{member.name ?? member.username}</div>
+                <div className="text-xs text-white">{member.type}</div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -81,8 +59,8 @@ export const AnimatedTooltip = ({
             onMouseMove={handleMouseMove}
             height={100}
             width={100}
-            src={item.image}
-            alt={item.name}
+            src={member.avatarUrl}
+            alt={member.name}
             className="relative !m-0 h-14 w-14 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
           />
         </div>

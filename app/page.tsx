@@ -1,17 +1,17 @@
 import MainNavbar from "@/components/sections/Navbar";
-import HeroSection from "@/components/sections/HeroSection";
-import FeaturesSection from "@/components/sections/Features";
-import ProjectSection from "@/components/sections/Projects";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
 import Community from "@/components/sections/Community";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
+    <div className="flex max-w-7xl flex-col items-center justify-center">
       <MainNavbar />
-      <HeroSection />
-      <FeaturesSection />
-      <ProjectSection />
+      <Hero />
+      <About />
+      <Projects />
       <Community />
       <Footer/>
     </div>

@@ -5,7 +5,7 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { useEffect, useState } from "react";
 import { Project } from "@/types/types";
 
-export default function ProjectSection() {
+export default function Projects() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -30,7 +30,7 @@ export default function ProjectSection() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center mx-6 w-full">
+    <div className="flex flex-col items-center justify-center mx-6 w-full" id="projects">
       <h1 className="my-6 mx-auto text-center text-3xl font-bold text-slate-700 md:text-4xl lg:text-6xl dark:text-slate-300">
         Featured Projects
       </h1>

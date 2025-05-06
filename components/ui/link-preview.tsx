@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 type LinkPreviewProps = {
   children: React.ReactNode;
@@ -128,7 +129,7 @@ export const LinkPreview = ({
                   x: translateX,
                 }}
               >
-                <a
+                <Link
                   href={url}
                   className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
@@ -140,7 +141,7 @@ export const LinkPreview = ({
                     className="rounded-lg"
                     alt="preview image"
                   />
-                </a>
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>

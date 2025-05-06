@@ -12,19 +12,24 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import Link from "next/link";
 
 const navItems = [
   {
-    name: "Features",
-    link: "#features",
+    name: "Home",
+    link: "/#home",
   },
   {
-    name: "Pricing",
-    link: "#pricing",
+    name: "About",
+    link: "/#about",
   },
   {
-    name: "Contact",
-    link: "#contact",
+    name: "Projects",
+    link: "/#projects",
+  },
+  {
+    name: "Community",
+    link: "/#community",
   },
 ];
 
@@ -37,8 +42,9 @@ export default function MainNavbar() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <NavbarButton variant="secondary">Login</NavbarButton>
-          <NavbarButton variant="primary">Book a call</NavbarButton>
+          <Link href="/#community">
+            <NavbarButton variant="primary">Join</NavbarButton>
+          </Link>
         </div>
       </NavBody>
 
@@ -51,19 +57,21 @@ export default function MainNavbar() {
 
         <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
           {navItems.map((item, idx) => (
-            <a
+            <Link
               key={`mobile-link-${idx}`}
               href={item.link}
               onClick={() => setIsMobileMenuOpen(false)}
               className="relative text-neutral-600 dark:text-neutral-300"
             >
               <span className="block">{item.name}</span>
-            </a>
+            </Link>
           ))}
           <div className="flex w-full flex-col gap-4">
-            <NavbarButton onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">
-              Login
-            </NavbarButton>
+            <Link href="/#community">
+              <NavbarButton onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">
+                Join
+              </NavbarButton>
+            </Link>
           </div>
         </MobileNavMenu>
       </MobileNav>
