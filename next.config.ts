@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       "api.microlink.io", // Microlink Image Preview
+      "avatars.githubusercontent.com",
+      "raw.githubusercontent.com",
+      "images.unsplash.com",
     ],
   },
 };

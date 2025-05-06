@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export const ImageCard = () => {
@@ -68,15 +69,15 @@ export const ImageCard = () => {
             transform: "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)",
           }}
         >
-          <img
+          <Image
             className="absolute inset-0 w-[120%] h-[120%] object-cover opacity-100 transition-opacity duration-600 ease-in-out"
             style={{
               opacity: 1,
             }}
-            alt={"image"}
-            src={
-              "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            }
+            alt="image"
+            src="/hero.png"
+            height={5000}
+            width={5000}
             onLoad={imageLoaded}
             loading="eager"
             decoding="sync"
@@ -87,7 +88,6 @@ export const ImageCard = () => {
     </div>
   );
 };
-
 
 export const About = ({
   title,

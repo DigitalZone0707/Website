@@ -42,9 +42,9 @@ export default function MainNavbar() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <Link href="/#community">
-            <NavbarButton variant="primary">Join</NavbarButton>
-          </Link>
+          <NavbarButton href="/#community" variant="primary">
+            Join
+          </NavbarButton>
         </div>
       </NavBody>
 
@@ -67,11 +67,14 @@ export default function MainNavbar() {
             </Link>
           ))}
           <div className="flex w-full flex-col gap-4">
-            <Link href="/#community">
-              <NavbarButton onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">
-                Join
-              </NavbarButton>
-            </Link>
+            <NavbarButton
+              href="/#community"
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="primary"
+              className="w-full"
+            >
+              Join
+            </NavbarButton>
           </div>
         </MobileNavMenu>
       </MobileNav>

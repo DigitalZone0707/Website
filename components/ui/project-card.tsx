@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { IconWorld, IconBrandGithub } from "@tabler/icons-react";
 import { LinkPreview } from "@/components/ui/link-preview";
-import { GitHubRepo } from "@/types/types";
+import { Project } from "@/types/types";
+import Image from "next/image";
 
 interface ProjectCardProps {
-  project: GitHubRepo;
+  project: Project;
   index: number;
   hovered: number | null;
   setHovered: React.Dispatch<React.SetStateAction<number | null>>;
@@ -23,7 +24,7 @@ export const ProjectCard = React.memo(({ project, index, hovered, setHovered }: 
       hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
     )}
   >
-    <img src={project.image} alt={project.name} className="w-full h-48 md:h-60 object-cover" />
+    <Image src={project.image} alt={project.name} width={400} height={300} className="w-full h-48 md:h-60 object-cover" />
 
     <div className="p-4 space-y-3">
       <h3 className="text-xl font-semibold">{project.name}</h3>
@@ -31,9 +32,9 @@ export const ProjectCard = React.memo(({ project, index, hovered, setHovered }: 
       <p className="text-sm text-gray-600 dark:text-gray-300">{project.description}</p>
 
       <div className="flex flex-wrap gap-2">
-        {project.topics.map((badge) => (
-          <Badge variant="secondary" key={badge}>
-            {badge}
+        {project.topics.map((topic: string) => (
+          <Badge variant="secondary" key={topic}>
+            {topic}
           </Badge>
         ))}
       </div>

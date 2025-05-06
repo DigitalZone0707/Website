@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, useTransform, AnimatePresence, useMotionValue, useSpring } from "motion/react";
 import { Member } from "@/types/types";
+import Image from "next/image";
 
 export const AnimatedMembers = ({ members }: { members: Member[] }) => {
   const [hoveredIndex, setHoveredIndex] = useState<string | null>(null);
@@ -55,12 +56,12 @@ export const AnimatedMembers = ({ members }: { members: Member[] }) => {
               </motion.div>
             )}
           </AnimatePresence>
-          <img
+          <Image
             onMouseMove={handleMouseMove}
             height={100}
             width={100}
             src={member.avatarUrl}
-            alt={member.name}
+            alt={member.username}
             className="relative !m-0 h-14 w-14 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
           />
         </div>
