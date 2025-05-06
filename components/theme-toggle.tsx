@@ -1,50 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  // Ensure the component only renders after hydration
   useEffect(() => {
-    // Check for user preference in localStorage or system preference
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
+    setMounted(true);
   }, []);
 
-  const applyTheme = (newTheme: "light" | "dark") => {
-    const root = document.documentElement;
-    if (newTheme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  };
+  if (!mounted) return null; // Avoid rendering on server
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full bg-slate-700 dark:bg-slate-300 hover:bg-slate-600 dark:hover:bg-slate-200 transition-colors"
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-    >
-      {theme === "light" ? (
-        <Moon className="h-5 w-5 text-white" />
-      ) : (
-        <Sun className="h-5 w-5 text-slate-800" />
-      )}
-    </button>
+    <div className="fixed bottom-4 right-4 z-50">
+      <Button onClick={toggleTheme} variant="outline" size="icon" aria-label="Toggle theme">
+        <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+        <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      </Button>
+    </div>
   );
 }

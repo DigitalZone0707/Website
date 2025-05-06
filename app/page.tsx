@@ -1,27 +1,19 @@
-"use client";
+import MainNavbar from "@/components/sections/Navbar";
+import HeroSection from "@/components/sections/HeroSection";
+import FeaturesSection from "@/components/sections/Features";
+import ProjectSection from "@/components/sections/Projects";
+import Community from "@/components/sections/Community";
+import Footer from "@/components/sections/Footer";
 
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
-import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
-import { Projects } from "@/components/sections/projects";
-import { Community } from "@/components/sections/community";
-import { Join } from "@/components/sections/join";
-import { FloatingContact } from "@/components/floating-contact";
-
-export default function LandingPage() {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-800 text-slate-900 dark:text-white">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Community />
-        <Join />
-      </main>
-      <Footer />
-      <FloatingContact />
+    <div className="relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center">
+      <MainNavbar />
+      <HeroSection />
+      <FeaturesSection />
+      <ProjectSection />
+      <Community />
+      <Footer/>
     </div>
   );
 }
